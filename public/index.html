@@ -28,8 +28,7 @@
     </div>
 </div>
 
-    <div>
-        <a href="/logout" type="button" class="btn btn-success">Logout</a>
+    <div id = "login-status">
     </div>
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -46,6 +45,7 @@
                 // user is authenticated
                 $(".container").addClass("hide");
                 $('#login-status').html('Hi ' + data.user.displayName + '! What do you want to get done today?');
+                $("#login-status").append('<div><a href="/logout" type="button" class="btn btn-success">Logout</a></div>');
             },
             error: function (jqXHR) {
                 if (jqXHR.status === 401) {
