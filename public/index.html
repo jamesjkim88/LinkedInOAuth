@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LinkedIn OAuth</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="stylesheets/base.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <ul class="list-group input-form">
+            <li class="list-group-item active">
+                Enter your login details OR login via linked In
+            </li>
+            <li class="list-group-item">
+                <input type="text" placeholder="enter username">
+            </li>
+            <li class="list-group-item">
+                <input type="text" placeholder="enter username">
+            </li>
+        </ul>
+    </div>
+
+    <div style="text-align: center">
+        <a href="/auth/linkedin" type="button" class="btn btn-success">Sign Up with LinkedIn</a>
+    </div>
+</div>
+
+    <div>
+        <a href="/logout" type="button" class="btn btn-success">Logout</a>
+    </div>
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script>
+
+
+    $(function () {
+        console.log('hello world from the linked in app');
+        // check if the user is logged in ...
+        $.ajax({
+            url: '/account',
+            success: function (data, status, jqXHR) {
+                console.log(data.user);
+                // user is authenticated
+                $(".container").addClass("hide");
+                $('#login-status').html('Hi ' + data.user.displayName + '! What do you want to get done today?');
+            },
+            error: function (jqXHR) {
+                if (jqXHR.status === 401) {
+                    // user is not authenticated
+                    $('#login-status').html('You are not logged in, please use the following button to login ... ');
+                }
+                console.log(jqXHR);
+            }
+        });
+    });
+
+</script>
+</body>
+</html>
