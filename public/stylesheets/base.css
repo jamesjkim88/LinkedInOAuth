@@ -10,10 +10,6 @@ ul > li{
     list-style: none;
 }
 
-.button{
-    margin-left: 50%;
-}
-
 #login-status{
     width: 100%;
     height: 300px;

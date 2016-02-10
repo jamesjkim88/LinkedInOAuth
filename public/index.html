@@ -9,27 +9,33 @@
 <body>
 
 <div class="container">
-    <div class="row">
-        <ul class="list-group input-form">
-            <li class="list-group-item active">
-                Enter your login details OR login via linked In
-            </li>
-            <li class="list-group-item">
-                <input type="text" placeholder="enter username">
-            </li>
-            <li class="list-group-item">
-                <input type="text" placeholder="enter username">
-            </li>
-        </ul>
+    <div class="row row-1">
+        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+            <h3>Enter your login details OR login via linked In</h3>
+            <ul class="list-group input-form">
+                <li class="list-group-item">
+                    <input type="text" placeholder="Username">
+                </li>
+                <li class="list-group-item">
+                    <input type="text" placeholder="Password">
+                </li>
+            </ul>
+        </div>
     </div>
 
-    <div style="text-align: center">
+    <div class="row-1" style="text-align: center">
         <a href="/auth/linkedin" type="button" class="btn btn-success">Sign Up with LinkedIn</a>
     </div>
+
+    <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+    <div id = "login-status">
+
+    </div>
+    </div>
+
 </div>
 
-    <div id = "login-status">
-    </div>
+
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script>
@@ -43,8 +49,8 @@
             success: function (data, status, jqXHR) {
                 console.log(data.user);
                 // user is authenticated
-                $(".container").addClass("hide");
-                $('#login-status').html('Hi ' + data.user.displayName + '! What do you want to get done today?');
+                $(".row-1").addClass("hide");
+                $('#login-status').html('<h1>Hi ' + data.user.displayName + '!</h1>');
                 $("#login-status").append('<div><a href="/logout" type="button" class="btn btn-success">Logout</a></div>');
             },
             error: function (jqXHR) {
