@@ -1,5 +1,0 @@
-{
-  "LINKEDIN_CLIENT_ID": "75sbw5iugpc1sz",
-  "LINKEDIN_CLIENT_SECRET": "dLPSodXkuW8l4dcQ",
-  "LINKEDIN_CALLBACK_URL": "http://localhost:3000/auth/linkedin/callback"
-}
